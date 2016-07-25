@@ -1,0 +1,132 @@
+
+<div class="container-fluid" id="product-page">
+    <div class="row header">
+        <div class="col-xs-7">
+            <div class="row">
+                <div class="col-xs-5 categories">
+                     <div class="custom-select">
+                        <div class="value">All categories</div>
+                        <ul>
+                            <li ng-click="setCategory('');">All categories</li>
+                            <li ng-click="setCategory(category.slug);" ng-repeat="category in categories" ng-bind-html="category.name"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-7">
+                    <div class="search-holder">
+                            <input type="text" placeholder="SEARCH" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i ng-click="deleteAllItems()" class="icon-trash"></i>
+                </div>
+                <div class="col-xs-6">
+                    <div class="cart-info">
+                        Cart <span ng-if="$root.cart.items.length > 0" ng-bind="'(' +  $root.cart.items.length + ')'"></span>
+                    </div>
+                </div>
+                <div class="col-xs-3 dropdown">
+                    <i data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="icon-dots"></i>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li ng-click="logout()">Log out</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row catalog-holder">
+        <div class="col-xs-7 left-side">
+            <div class="row product-catalog">
+                <div ng-repeat="product in products"
+                     ng-click="addToCart(product);" class="col-xs-3">
+                     <span class="img-holder" ng-style="{'background-image':'url('+ product.images[0].preview +')'}"></span>
+                     <!-- <span class="img-holder" ng-cache ng-bg="{{product.images[0].preview}}"></span> -->
+                     <span class="name">
+                        {{product.title}}
+                     </span>
+                </div>
+            </div>
+            <div class="row catalog-footer">
+                <div class="col-xs-8">
+                    SCAN BARCODE
+                </div>
+                <div class="col-xs-4 text-right">
+                    <i class="icon-v"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5 light-grey">
+
+
+
+
+
+            <div class="user-row clearfix" ng-init="showIt = true">
+                <div class="short-nick" ng-click="showIt = !showIt" >{{getUserNick()}}</div>
+                <div class="user-info" ng-show="showIt">
+                    <div>{{$root.currentCustomer.first_name}} {{$root.currentCustomer.last_name}}</div>
+                    <div>{{$root.currentCustomer.billing.phone}}</div>
+                    <div>{{$root.currentCustomer.email}}</div>
+                </div>
+                <i ng-click="$root.saveOrder()" class="icon-ion-close-round"></i>
+            </div>
+
+            <div class="cart-list">
+                <div class="clearfix" ng-class="{'swiped':cartItem.isSwiped}" ng-swipe-right="deleteItem(cartItem)" ng-repeat="cartItem in $root.cart.items" ng-animate="'animate'">
+
+                    <!-- <div class="img" ng-cache ng-bg="{{product.images[0].preview}}"> -->
+                    <div class="img" ng-style="{'background-image':'url('+ cartItem.featured_src +')'}">
+                        <div class="badge" ng-if="cartItem.cartItemsCount > 1">{{cartItem.cartItemsCount}}x</div>
+                    </div>
+                    <div class="item-info">
+                        <div class="price">${{cartItem.price}}</div>
+                        <div>{{cartItem.title}}</div><br/>
+                        <div class="desc" ng-bind-html="cartItem.description"></div>
+                    </div>
+                </div>
+            </div>
+    <!--
+            <div class="cart-summary">
+                <div class="row">
+                    <div class="col-xs-8">
+                        Add Cart Discount
+                    </div>
+                    <div class="col-xs-4">
+                        <i class="icon-plus-outline"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        Subtotal
+                    </div>
+                    <div class="col-xs-4 price">
+                        $180.00
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        Taxes (State Tax 4.5%)
+                    </div>
+                    <div class="col-xs-4 price">
+                        $180.00
+                    </div>
+                </div>
+            </div>
+    -->
+            <a ng-click="goToCheckout();" class="total-price">
+                <div>
+                    TOTAL
+                </div>
+                <div>
+                    ${{$root.cart.priceTotal}}
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

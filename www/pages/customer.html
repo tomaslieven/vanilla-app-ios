@@ -1,0 +1,50 @@
+<div class="container-fluid checkout-flow" id="customer-page">
+    <div class="row checkout-steps">
+        <div ng-click="$root.goTo('products');" class="col-xs-3">PRODUCTS</div>
+        <div class="col-xs-3 active">CUSTOMER</div>
+        <div ng-click="$root.goTo('payment');" class="col-xs-3">PAYMENT</div>
+        <div class="col-xs-3">CONFIRMATION</div>
+    </div>
+    <div class="customer-info">
+        <div class="row"></div>
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-4">
+                <div>
+                    <label for="name">FIRST NAME</label>
+                    <input id="name" type="text" ng-model="$root.currentCustomer.billing.first_name" />
+                </div>
+                <div>
+                    <label for="surname">SECOND NAME</label>
+                    <input id="surname" type="text" ng-model="$root.currentCustomer.billing.last_name" />
+                </div>
+                <div>
+                    <label for="phone">PHONE NUMBER</label>
+                    <input id="phone" type="text" ng-model="$root.currentCustomer.billing.phone" />
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div>
+                    <label for="address">ADDRESS</label>
+                    <input id="address" type="text" ng-model="$root.currentCustomer.billing.address_1" />
+                </div>
+                <div>
+                    <label for="zip">ZIP</label>
+                    <input id="zip" type="text" ng-model="$root.currentCustomer.billing.postcode" />
+                </div>
+                <div>
+                    <label for="city">CITY</label>
+                    <input id="city" type="text" ng-model="$root.currentCustomer.billing.city" />
+                </div>
+            </div>
+        </div>
+        <div class="buttons-foot">
+            <button ng-click="$root.goTo('products');" class="prev">
+                BACK TO PRODUCTS
+            </button>
+
+            <button ng-click="$root.goTo('payment');" class="next">
+                PROCEED TO PAYMENT
+            </button>
+        </div>
+    </div>
+</div>

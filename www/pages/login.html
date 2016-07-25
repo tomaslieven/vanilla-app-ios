@@ -1,0 +1,36 @@
+<div id="login-page">
+	<img src="img/logo-white.png" class="logo" />
+	<div class="window">
+		<div class="bg-white">
+			<div class="header">
+				LOGIN
+			</div>
+			<form ng-submit="tryLogin()">
+				<label>
+					E-MAIL
+					<input type="text" placeholder="Your email" ng-model="email" />
+
+				</label>
+				<label>
+					PASSWORD
+					<input type="password" placeholder="Your password" ng-model="password" />
+				</label>
+				<label class="custom-checkbox">
+					<input ng-model="keepMeIn" type="checkbox" />
+					<span>
+						Keep me signed in
+					</span>
+				</label>
+				<button type="submit">
+					<img ng-if="loginInProgress" src="img/ajax-loader-FFFFFF.gif" />
+					LOG ME IN
+				</button>
+			</form>
+			<div ng-if="loginError != ''" ng-bind="loginError" class="error"></div>
+			<div class="footer">
+				Forgot <a href="#">Password</a> or <a href="#">Username</a>
+			</div>
+		</div>
+		Don't have account ? <a href="#">Sign up</a>
+	</div>
+</div>

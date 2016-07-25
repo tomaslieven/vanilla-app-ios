@@ -1,0 +1,29 @@
+<div class="container-fluid checkout-flow" id="confirm-page">
+    <div class="row checkout-steps">
+        <div ng-click="$root.goTo('products');" class="col-xs-3">PRODUCTS</div>
+        <div ng-click="$root.goTo('customer');" class="col-xs-3">CUSTOMER</div>
+        <div ng-click="$root.goTo('payment');" class="col-xs-3">PAYMENT</div>
+        <div class="col-xs-3 active">CONFIRMATION</div>
+    </div>
+    <div class="confirm-content">
+        <div class="row payments-row vh-center">
+            <div class="payments col-xs-10">
+                <div class="total">
+                    <small>TOTAL PAID</small>
+                    ${{totalPaid}}
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <span class="icon-ok"></span>
+            <h1>Order complete</h1>
+            <p>Your order has been accepted</p>
+        </div>
+        <div class="buttons-foot">
+            <button ng-click="$root.goTo('products');" class="prev">
+                BACK TO PRODUCTS
+            </button>
+        </div>
+    </div>
+</div>

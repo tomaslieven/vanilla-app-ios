@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+  <html lang="en" ng-controller="global" ng-app="app">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+      <title>Vanilla - SHOP</title>
+      <meta name="author" content="ThemingCool" />
+      <meta name="description" content="" />
+      <meta name="keywords" content="" />
+
+      <!--*
+          *   Splash Screen Images
+          **-->
+      <!-- Allow web app to be run in full-screen mode. -->
+      <meta name="apple-mobile-web-app-capable"
+            content="yes">
+
+      <!-- Configure the status bar. -->
+      <meta name="apple-mobile-web-app-status-bar-style"
+            content="white">
+
+      <!-- iPad retina portrait startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-1536x2008.png"
+            media="(device-width: 768px) and (device-height: 1024px)
+                   and (-webkit-device-pixel-ratio: 2)
+                   and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPad retina landscape startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-1496x2048.png"
+            media="(device-width: 768px) and (device-height: 1024px)
+                   and (-webkit-device-pixel-ratio: 2)
+                   and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPad non-retina portrait startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-768x1004.png"
+            media="(device-width: 768px) and (device-height: 1024px)
+                   and (-webkit-device-pixel-ratio: 1)
+                   and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPad non-retina landscape startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-748x1024.png"
+            media="(device-width: 768px) and (device-height: 1024px)
+                   and (-webkit-device-pixel-ratio: 1)
+                   and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPhone 6 Plus portrait startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-1242x2148.png"
+            media="(device-width: 414px) and (device-height: 736px)
+                   and (-webkit-device-pixel-ratio: 3)
+                   and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPhone 6 Plus landscape startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-1182x2208.png"
+            media="(device-width: 414px) and (device-height: 736px)
+                   and (-webkit-device-pixel-ratio: 3)
+                   and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPhone 6 startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-750x1294.png"
+            media="(device-width: 375px) and (device-height: 667px)
+                   and (-webkit-device-pixel-ratio: 2)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPhone 5 startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-640x1096.png"
+            media="(device-width: 320px) and (device-height: 568px)
+                   and (-webkit-device-pixel-ratio: 2)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPhone < 5 retina startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-640x920.png"
+            media="(device-width: 320px) and (device-height: 480px)
+                   and (-webkit-device-pixel-ratio: 2)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPhone < 5 non-retina startup image -->
+      <link href="photos/splashScreens/apple-touch-startup-image-320x460.png"
+            media="(device-width: 320px) and (device-height: 480px)
+                   and (-webkit-device-pixel-ratio: 1)"
+            rel="apple-touch-startup-image">
+
+      <!--*
+          *   FavIcons
+          **-->
+      <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+      <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+      <link rel="icon" type="image/png" href="img/favicons/favicon-194x194.png" sizes="194x194">
+      <link rel="icon" type="image/png" href="img/favicons/favicon-96x96.png" sizes="96x96">
+      <link rel="icon" type="image/png" href="img/favicons/android-chrome-192x192.png" sizes="192x192">
+      <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
+      <link rel="manifest" href="img/favicons/manifest.json">
+      <link rel="shortcut icon" href="img/favicons/favicon.ico">
+      <meta name="msapplication-TileColor" content="#ffc40d">
+      <meta name="msapplication-TileImage" content="img/favicons/mstile-144x144.png">
+      <meta name="msapplication-config" content="img/favicons/browserconfig.xml">
+      <meta name="theme-color" content="#ffffff">
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,100" rel="stylesheet" type="text/css">
+
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body class="primary-bg">
+
+  <!-- Views-->
+  <div class="page-content" ng-view></div>
+  <!-- .views | ENDS -->
+
+  <!-- Loading Screen add ' ng-class="{ 'on': !$root.pageIsLoaded }" '  -->
+  <div class="tc-loading-screen vh-center" ng-class="{ 'on': !$root.pageIsLoaded }">
+      <div>
+          <div class="big">Page is Loading</div>
+          <div class="small">Please Wait...</div>
+
+          <div class="preloader-wrapper active">
+              <div class="spinner-layer spinner-blue">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div><div class="gap-patch">
+                  <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+              </div>
+              </div>
+
+              <div class="spinner-layer spinner-red">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div><div class="gap-patch">
+                  <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+              </div>
+              </div>
+
+              <div class="spinner-layer spinner-yellow">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div><div class="gap-patch">
+                  <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+              </div>
+              </div>
+
+              <div class="spinner-layer spinner-green">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div><div class="gap-patch">
+                  <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div><!-- .tc-loading-screen | ENDS -->
+
+  <!-- Status bar overlay for fullscreen mode-->
+  <div class="statusbar-overlay"></div>
+  <!-- Panels overlay-->
+  <div class="panel-overlay"></div>
+
+  <!--
+  <script data-main="js/app" src="js/require.min.js"></script>
+  -->
+  <!--
+      <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+  -->
+  </body>
+  <script src="js/lib/jquery-1.11.3.min.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
+  <script src="js/lib/imgcache.min.js"></script>
+  <script src="js/lib/fastclick.min.js"></script>
+  <!-- angular libraries -->
+  <script src="js/angular/angular.min.js"></script>
+  <script src="js/angular/angular-libs.js"></script>
+  <!-- own angular files -->
+  <script src="js/angular/angular-app.js"></script>
+  <script src="js/angular/angular-controllers.js"></script>
+  <script src="js/angular/angular-factories.js"></script>
+</html>

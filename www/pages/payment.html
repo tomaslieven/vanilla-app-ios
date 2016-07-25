@@ -1,0 +1,130 @@
+<div class="container-fluid checkout-flow" id="payment-page">
+    <div class="row checkout-steps">
+        <div ng-click="$root.goTo('products');" class="col-xs-3">PRODUCTS</div>
+        <div ng-click="$root.goTo('customer');" class="col-xs-3">CUSTOMER</div>
+        <div class="col-xs-3 active">PAYMENT</div>
+        <div class="col-xs-3">CONFIRMATION</div>
+    </div>
+
+    <div class="checkout-content">
+
+        <div class="row payments-row vh-center">
+            <div class="payments col-xs-10">
+                <button ng-class="{active: paymentIndex == 0}" ng-click="setPayment(0);">
+                    <span class="holder">
+                        <span class="dollar-icon">
+                            <span></span>
+                        </span>
+                    </span>
+                    <span class="title">DOLLAR</span>
+                </button>
+
+                <button ng-class="{active: paymentIndex == 1 }" ng-click="setPayment(1);">
+                    <span class="holder">
+                        <span class="visa-icon"></span>
+                    </span>
+                    <span class="title">STANDARD</span>
+                </button>
+
+
+                <div class="total">
+                    <small>TOTAL TO PAY</small>
+                    ${{$root.cart.priceTotal}}
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-if="paymentIndex == 1" class="checkout-info">
+            <div class="row"></div>
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8">
+                    <label for="cardNumber">CARD NUMBER</label>
+                    <input id="cardNumber" type="text" ng-model="cardNumber" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-4">
+                    <label for="input2">EXPIRATION DATE</label>
+                    <input id="input2" type="text" value="01 / 16" />
+                </div>
+                <div class="col-xs-4">
+                    <label for="input3">CVV</label>
+                    <input id="input3" type="text" value="123" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8">
+                    <label for="input1">CARD HOLDER NAME</label>
+                    <input id="input1" type="text" value="John Smith" />
+                </div>
+            </div>
+            <div class="buttons-foot">
+                <button ng-click="$root.goTo('products');" class="prev">
+                    BACK TO PRODUCTS
+                </button>
+
+                <button ng-click="$root.goTo('confirmation');" class="next">
+                    PAY &nbsp;&nbsp;&nbsp;&nbsp; ${{$root.cart.priceTotal}}
+                </button>
+            </div>
+        </div>
+
+        <div ng-if="paymentIndex == 0" class="checkout-info">
+            <div class="row big-money">
+                <div class="col-xs-offset-1 col-xs-10">
+                    <button ng-click="addMoney(500);">
+                        $500
+                    </button>
+                    <button ng-click="addMoney(700);">
+                        $700
+                    </button>
+                    <button ng-click="addMoney(1000);">
+                        $1000
+                    </button>
+                    <button ng-click="addMoney(2000);">
+                        $2000
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5">
+                    ENTER CASH RECEIVED
+                    <div class="keyboard">
+                        <div class="row">
+                            <div ng-click="calculator('1');" class="col-xs-4">1</div>
+                            <div ng-click="calculator('2');" class="col-xs-4">2 <small>ABC</small></div>
+                            <div ng-click="calculator('3');" class="col-xs-4">3 <small>DEF</small></div>
+                        </div>
+                        <div class="row">
+                            <div ng-click="calculator('4');" class="col-xs-4">4 <small>GHI</small></div>
+                            <div ng-click="calculator('5');" class="col-xs-4">5 <small>JKL</small></div>
+                            <div ng-click="calculator('6');" class="col-xs-4">6 <small>MNO</small></div>
+                        </div>
+                        <div class="row">
+                            <div ng-click="calculator('7');" class="col-xs-4">7 <small>PQRS</small></div>
+                            <div ng-click="calculator('8');" class="col-xs-4">8 <small>TUV</small></div>
+                            <div ng-click="calculator('9');" class="col-xs-4">9 <small>WXYZ</small></div>
+                        </div>
+                        <div class="row">
+                            <div ng-click="calculator('.');" class="col-xs-4">.</div>
+                            <div ng-click="calculator('0');" class="col-xs-4">0</div>
+                            <div ng-click="calculator('x');" class="col-xs-4">X</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5 total-pay-block">
+                    CASH RECEIVED
+                    <b>${{cashReceived}}</b>
+                    CASH {{isReceivedMore() ? 'RETURN' : 'REMAINING'}}
+                    <b>{{isReceivedMore() ? '-' : ''}} ${{alwaysPositive($root.cart.priceTotal-cashReceived)}}</b>
+                </div>
+            </div>
+            <div class="buttons-foot" ng-class="{'right-side':paymentType == 'cash'}">
+                <button ng-click="$root.goTo('confirmation');" class="next">
+                    CONFIRM PURCHASE
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
